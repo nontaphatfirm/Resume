@@ -302,21 +302,21 @@
 
         .cv-cover {
             display: grid;
-            grid-template-columns: 102px 1fr;
-            gap: 22px;
+            grid-template-columns: 108px 1fr 78px;
+            gap: 18px;
             align-items: start;
-            padding-bottom: 18px;
+            padding: 0 0 17px;
             border-bottom: 1.5px solid var(--line);
             margin-bottom: 18px;
         }
 
         .cv-cover .photo-frame {
-            width: 102px;
-            height: 140px;
+            width: 104px;
+            height: 132px;
         }
 
         .cv-title {
-            font-size: 29px;
+            font-size: 30px;
             line-height: 1;
             letter-spacing: 0;
         }
@@ -332,20 +332,37 @@
         }
 
         .cv-summary {
-            margin-top: 12px;
+            margin-top: 10px;
             color: #334155;
-            font-size: 12.8px;
-            line-height: 1.62;
+            font-size: 12.2px;
+            line-height: 1.55;
         }
 
         .cv-contact {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 6px 18px;
-            margin-top: 14px;
+            gap: 5px 18px;
+            margin-top: 12px;
             color: var(--muted);
-            font-size: 11px;
-            line-height: 1.45;
+            font-size: 10.6px;
+            line-height: 1.38;
+        }
+
+        .cv-linktree-card {
+            text-align: right;
+            color: var(--muted);
+            font-size: 10.5px;
+            line-height: 1.35;
+            font-weight: 600;
+            padding-top: 3px;
+        }
+
+        .cv-linktree-card .qr-frame {
+            width: 64px;
+            height: 64px;
+            margin-left: auto;
+            margin-bottom: 6px;
+            border-color: #cfd7e3;
         }
 
         .cv-grid {
@@ -392,6 +409,18 @@
         .cv-block ul {
             margin: 7px 0 0;
             padding-left: 17px;
+        }
+
+        .project-link {
+            color: var(--muted);
+            font-size: 10.8px !important;
+            line-height: 1.4 !important;
+            font-weight: 600;
+        }
+
+        .project-link a {
+            color: var(--accent);
+            font-weight: 700;
         }
 
         .cv-section {
@@ -575,7 +604,7 @@
                                 <span class="bullet-char">-</span>
                                 <div>
                                     <div class="entry-title">Academic Popular Vote - WellSense AIoT Hackathon</div>
-                                    <div class="entry-desc">Super AI Engineer Season 6 - Led software/model design for "FormWings," an IMU + ML on-device running-form analyzer - 2026.</div>
+                                    <div class="entry-desc">Super AI Engineer Season 6 - Led software/model design for "FormWings," an IMU + ML on-device running-form analyzer - 29 May 2026.</div>
                                 </div>
                             </div>
                             <div class="bullet-item">
@@ -642,7 +671,7 @@
                                 <span class="bullet-char">-</span>
                                 <div>
                                     <div class="entry-title">Thailand Mathematics Academic Camp (TMAC)</div>
-                                    <div class="entry-desc">11th TMAC - 2023.</div>
+                                    <div class="entry-desc">11th TMAC - 29 Apr - 1 May 2023.</div>
                                 </div>
                             </div>
                         </section>
@@ -756,10 +785,16 @@
                                 <span>Email: <a href="mailto:nontaphatfirm@gmail.com">nontaphatfirm@gmail.com</a></span>
                                 <span>Phone: (+66) 95-396-9693</span>
                                 <span>GitHub: <a href="https://github.com/nontaphatfirm">github.com/nontaphatfirm</a></span>
-                                <span>Linktree: <a href="https://linktr.ee/nontapat_auetrongjit">linktr.ee/nontapat_auetrongjit</a></span>
+                                <span>LinkedIn: <a href="https://www.linkedin.com/in/nontapat-auetrongjit-305737398">nontapat-auetrongjit</a></span>
                                 <span>Location: Bangkok, Thailand</span>
                                 <span>Date of Birth: 20 November 2007</span>
                             </div>
+                        </div>
+                        <div class="cv-linktree-card">
+                            <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer" class="qr-frame" aria-label="Open Linktree profile">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://linktr.ee/nontapat_auetrongjit" alt="Linktree QR" crossorigin="anonymous">
+                            </a>
+                            <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer">Link Tree</a>
                         </div>
                     </header>
 
@@ -922,7 +957,7 @@
                             </div>
                         </div>
                         <div class="cv-grid">
-                            <div class="cv-date">2023</div>
+                            <div class="cv-date">29 Apr - 1 May 2023</div>
                             <div class="cv-block">
                                 <h3>Thailand Mathematics Academic Camp (TMAC)</h3>
                                 <p>
@@ -948,6 +983,21 @@
                                 <p>
                                     Integrated Modulino Thermo for real-time temperature, humidity, and heat-index context, broadcast results over BLE, and visualized the analysis on a React + Vite dashboard. The project received the Academic Popular Vote award at the WellSense AIoT Hackathon.
                                 </p>
+                                <p class="project-link">Link: <a href="https://thescamperss6.com/en/projects/formwings">thescamperss6.com/en/projects/formwings</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>Dream Tour - AI Travel Recommendation App</h3>
+                                <div class="cv-meta">Mini Hackathon 4, Super AI Engineer Season 6 Level 2 Online</div>
+                                <p>
+                                    Built an AI-powered Thailand travel recommendation web app that turns an uploaded mood image into up to five matching destinations. The system uses a three-agent pipeline: Gemini vision extracts Thai vibe keywords, Tavily searches local travel reviews and blogs, and Gemini reasoning ranks destinations with descriptions, local tips, transport guidance, food suggestions, photos, and Google Maps links.
+                                </p>
+                                <p>
+                                    Implemented the Gradio interface and Python workflow with Gemini 2.0 Flash, Tavily AI Search, Pillow, and python-dotenv, supporting optional filtering across Thailand's 77 provinces and 6 regions.
+                                </p>
+                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Dream-Tour">github.com/nontaphatfirm/Dream-Tour</a></p>
                             </div>
                         </div>
                         <div class="cv-grid">
@@ -957,6 +1007,7 @@
                                 <p>
                                     Developed a real-time computer-vision project that detects student behavior in classroom settings. The project grew from knowledge gained through AI Builders 2024 and required independent research across local and international references. It received a Silver Medal at the 9th Demonstration Academic Fair 2024 under the National and International Innovation Creation Project at Chulalongkorn University Demonstration School.
                                 </p>
+                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Classroom-Behavior-Detector">github.com/nontaphatfirm/Classroom-Behavior-Detector</a></p>
                             </div>
                         </div>
                         <div class="cv-grid">
@@ -976,7 +1027,7 @@
                     <section class="cv-section">
                         <div class="cv-section-title">Awards and Honors</div>
                         <div class="cv-grid">
-                            <div class="cv-date">2026</div>
+                            <div class="cv-date">29 May 2026</div>
                             <div class="cv-block">
                                 <h3>Academic Popular Vote - WellSense AIoT Hackathon</h3>
                                 <p>
@@ -1055,7 +1106,7 @@
                             <div class="cv-block">
                                 <h3>I-Squared Hackathon - 5th of 17 Teams</h3>
                                 <p>
-                                    Achieved 5th place in an undergraduate-level Data Science and Machine Learning competition sponsored by Google, Gulf, and Bright Hair Studio. The team was composed entirely of first-year students.
+                                    Achieved 5th place in an undergraduate-level Data Science and Machine Learning competition sponsored by Google, Gulf, and Bright Hair Studio, working on a medical computer-vision challenge. The team was composed entirely of first-year students.
                                 </p>
                             </div>
                         </div>
@@ -1092,7 +1143,7 @@
                         <div class="cv-section-title">Hobbies and Interests</div>
                         <div class="cv-block">
                             <p>
-                                Classical guitar, table tennis, badminton, exploring technology-related content, and staying updated on emerging trends in AI, software engineering, and digital technology.
+                                Classical guitar, table tennis, badminton, investment, health, exploring technology-related content, and staying updated on emerging trends in AI, software engineering, and digital technology.
                             </p>
                         </div>
                     </section>
