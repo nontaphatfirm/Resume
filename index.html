@@ -1,456 +1,1163 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nontapat Auetrongjit – CV</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Nontapat Auetrongjit - Resume and CV</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#0a0f26',
-                    },
-                    fontFamily: {
-                        heading: ['Manrope', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         @page {
             size: A4;
             margin: 0;
         }
-        @media print {
-            *, *::before, *::after {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-            html, body {
-                width: 210mm;
-                height: 297mm;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: white !important;
-                overflow: hidden !important;
-            }
-            .no-print { display: none !important; }
-            .cv-page {
-                box-shadow: none !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                padding: 14mm !important;
-                width: 210mm !important;
-                height: 297mm !important;
-                min-height: 297mm !important;
-                max-height: 297mm !important;
-                overflow: hidden !important;
-                page-break-after: avoid !important;
-                page-break-inside: avoid !important;
-                break-after: avoid !important;
-                break-inside: avoid !important;
-            }
-            .cv-page * {
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-            }
+
+        :root {
+            --ink: #101828;
+            --muted: #5f6b7a;
+            --soft: #eef2f6;
+            --line: #d8dee7;
+            --paper: #ffffff;
+            --brand: #0b1228;
+            --accent: #2563eb;
         }
-        body { background: #e8e8e8; }
-        .section-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            font-size: 0.68rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #0a0f26;
-            padding-bottom: 5px;
-            border-bottom: 1.5px solid #0a0f26;
-            margin-bottom: 8px;
+
+        * {
+            box-sizing: border-box;
         }
-        .entry { margin-bottom: 6px; }
-        .entry-title {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: #0a0f26;
-            line-height: 1.28;
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #e7eaf0;
+            color: var(--ink);
+            font-family: "Inter", Arial, sans-serif;
         }
-        .entry-sub {
-            font-size: 0.73rem;
-            color: #64748b;
-            line-height: 1.32;
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
-        .entry-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.72rem;
-            color: #334155;
-            line-height: 1.4;
-        }
-        .tag {
-            display: inline-block;
-            font-size: 0.63rem;
-            font-weight: 500;
-            background: #f1f5f9;
-            color: #334155;
-            padding: 2px 7px;
-            border-radius: 3px;
-            margin: 1.5px 1.5px;
-            border: 1px solid #e2e8f0;
-        }
-        .bullet-item {
+
+        .toolbar {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 50;
             display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            margin-bottom: 4.5px;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid rgba(16, 24, 40, 0.12);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 18px 40px rgba(16, 24, 40, 0.12);
+            backdrop-filter: blur(12px);
         }
-        .bullet-char {
-            font-size: 0.72rem;
-            color: #0a0f26;
-            line-height: 1.4;
-            flex-shrink: 0;
-            min-width: 8px;
+
+        .tab-button,
+        .action-button {
+            height: 36px;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            padding: 0 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
         }
+
+        .tab-button {
+            background: transparent;
+            color: var(--muted);
+        }
+
+        .tab-button.active {
+            background: var(--brand);
+            color: white;
+        }
+
+        .action-button {
+            background: white;
+            color: var(--brand);
+            border-color: var(--line);
+        }
+
+        .stage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 72px 16px 36px;
+        }
+
+        .view {
+            display: none;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .view.active {
+            display: flex;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--paper);
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.18);
+        }
+
+        .resume-page {
+            height: 297mm;
+            overflow: hidden;
+            padding: 14mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cv-document {
+            width: 210mm;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .cv-page {
+            height: 297mm;
+            overflow: hidden;
+            padding: 17mm 18mm;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .cv-page:last-child {
+            page-break-after: auto;
+        }
+
+        .resume-header {
+            display: grid;
+            grid-template-columns: 84px 1fr 156px;
+            gap: 18px;
+            align-items: start;
+            margin-bottom: 14px;
+        }
+
         .photo-frame {
             width: 84px;
             height: 116px;
-            border-radius: 5px;
             overflow: hidden;
-            border: 1.5px solid #e2e8f0;
-            flex-shrink: 0;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 1.5px solid var(--line);
+            border-radius: 5px;
+            background: var(--soft);
         }
+
         .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            font-family: "Manrope", Arial, sans-serif;
+            color: var(--brand);
+        }
+
+        .name {
+            font-size: 20px;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .headline {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 18px;
+            padding: 2px 7px;
+            border: 1px solid #dde4ee;
+            border-radius: 3px;
+            background: #f4f7fa;
+            color: #334155;
+            font-size: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .contact-card {
+            text-align: right;
+            color: var(--muted);
+            font-size: 10.5px;
+            line-height: 1.45;
+        }
+
         .qr-frame {
             width: 54px;
             height: 54px;
-            border: 1px solid #e2e8f0;
+            display: block;
+            margin-left: auto;
+            margin-bottom: 4px;
+            border: 1px solid var(--line);
             border-radius: 4px;
             overflow: hidden;
-            flex-shrink: 0;
             background: white;
         }
+
         .qr-frame img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
+
+        .columns {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 170px;
+            gap: 22px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .section {
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1.5px solid var(--brand);
+            font-family: "Manrope", Arial, sans-serif;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brand);
+        }
+
+        .entry {
+            margin-bottom: 6px;
+        }
+
+        .entry-title {
+            font-family: "Manrope", Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.25;
+            font-weight: 700;
+            color: var(--brand);
+        }
+
+        .entry-sub {
+            margin-top: 1px;
+            color: #64748b;
+            font-size: 10.7px;
+            line-height: 1.35;
+            font-weight: 500;
+        }
+
+        .entry-desc {
+            margin-top: 2px;
+            color: #334155;
+            font-size: 10.5px;
+            line-height: 1.42;
+        }
+
+        .bullet-item {
+            display: grid;
+            grid-template-columns: 8px 1fr;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+
+        .bullet-char {
+            color: var(--brand);
+            font-size: 11px;
+            line-height: 1.3;
+        }
+
+        .compact .entry-title {
+            font-size: 11.2px;
+        }
+
+        .compact .entry-desc,
+        .compact .entry-sub {
+            font-size: 10px;
+        }
+
+        .cv-cover {
+            display: grid;
+            grid-template-columns: 102px 1fr;
+            gap: 22px;
+            align-items: start;
+            padding-bottom: 18px;
+            border-bottom: 1.5px solid var(--line);
+            margin-bottom: 18px;
+        }
+
+        .cv-cover .photo-frame {
+            width: 102px;
+            height: 140px;
+        }
+
+        .cv-title {
+            font-size: 29px;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .cv-kicker {
+            margin-top: 8px;
+            color: var(--accent);
+            font-size: 12px;
+            line-height: 1.3;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cv-summary {
+            margin-top: 12px;
+            color: #334155;
+            font-size: 12.8px;
+            line-height: 1.62;
+        }
+
+        .cv-contact {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px 18px;
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 18px;
+            margin-bottom: 15px;
+        }
+
+        .cv-date {
+            color: var(--accent);
+            font-family: "Manrope", Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.35;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .cv-block h3 {
+            font-size: 15px;
+            line-height: 1.25;
+            font-weight: 800;
+        }
+
+        .cv-meta {
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 11.2px;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .cv-block p,
+        .cv-block li {
+            color: #344054;
+            font-size: 11.4px;
+            line-height: 1.58;
+        }
+
+        .cv-block p {
+            margin: 7px 0 0;
+        }
+
+        .cv-block ul {
+            margin: 7px 0 0;
+            padding-left: 17px;
+        }
+
+        .cv-section {
+            margin-top: 22px;
+        }
+
+        .cv-section:first-child {
+            margin-top: 0;
+        }
+
+        .cv-section-title {
+            margin-bottom: 13px;
+            padding-bottom: 7px;
+            border-bottom: 1.5px solid var(--brand);
+            font-family: "Manrope", Arial, sans-serif;
+            color: var(--brand);
+            font-size: 13px;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .skill-table {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 8px 14px;
+            color: #344054;
+            font-size: 11.4px;
+            line-height: 1.5;
+        }
+
+        .skill-table strong {
+            color: var(--brand);
+            font-family: "Manrope", Arial, sans-serif;
+        }
+
+        .page-number {
+            margin-top: 18px;
+            padding-top: 9px;
+            border-top: 1px solid var(--line);
+            color: #98a2b3;
+            font-size: 10px;
+            text-align: right;
+        }
+
+        @media print {
+            *, *::before, *::after {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            html,
+            body {
+                width: 210mm;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .stage {
+                display: block;
+                padding: 0 !important;
+            }
+
+            .view {
+                display: none !important;
+            }
+
+            .view.active {
+                display: block !important;
+            }
+
+            .page {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            .resume-page {
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: 297mm !important;
+                max-height: 297mm !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                page-break-after: avoid !important;
+            }
+
+            .cv-document {
+                gap: 0 !important;
+            }
+
+            .cv-page {
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: 297mm !important;
+                max-height: 297mm !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+
+            .cv-page:last-child {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-start justify-center py-8 px-4 font-body">
+<body>
+    <nav class="toolbar no-print" aria-label="Document views">
+        <button class="tab-button active" type="button" data-target="resume-view">Resume</button>
+        <button class="tab-button" type="button" data-target="cv-view">CV</button>
+        <button class="action-button" type="button" onclick="window.print()">Print</button>
+        <button class="action-button" type="button" onclick="exportImage()">PNG</button>
+    </nav>
 
-    <!-- Print / Download Buttons -->
-    <div class="no-print fixed top-4 right-4 z-50 flex flex-col gap-2">
-        <button onclick="window.print()" class="bg-brand text-white text-xs font-medium px-4 py-2.5 rounded-lg hover:opacity-90 transition flex items-center gap-2 shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            Print as PDF
-        </button>
-        <button onclick="exportImage()" class="bg-white text-brand text-xs font-medium px-4 py-2.5 rounded-lg hover:bg-slate-50 transition flex items-center gap-2 shadow-lg border border-slate-200">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            Save as PNG
-        </button>
-    </div>
-
-    <!-- CV Page -->
-    <div class="cv-page bg-white w-full max-w-[210mm] min-h-[297mm] shadow-2xl rounded-sm px-[14mm] py-[14mm] flex flex-col" id="cv-page">
-
-        <!-- Header -->
-        <header class="mb-4">
-            <div class="flex items-start justify-between gap-5">
-                <!-- Photo -->
-                <div class="photo-frame">
-                    <img src="photo.jpg">
-                </div>
-                <!-- Name + Skills -->
-                <div class="flex-1 min-w-0">
-                    <h1 class="font-heading font-bold text-[1.28rem] text-brand leading-tight tracking-tight">NONTAPAT AUETRONGJIT</h1>
-                    <p class="text-[0.7rem] text-slate-500 font-medium mt-0.5 tracking-wide">Second-Year Undergraduate · Computer Engineering & Digital Technology (Sandbox)</p>
-                    <p class="text-[0.7rem] text-slate-500 font-medium mt-0.5 tracking-wide">Faculty of Engineering, Chulalongkorn University · Class of 2025</p>
-                    <div class="mt-2.5 flex flex-wrap gap-1.5">
-                        <span class="tag">AI / ML</span>
-                        <span class="tag">Computer Vision / AIoT</span>
-                        <span class="tag">Tabular / Signal Processing</span>
-                        <span class="tag">Data Science</span>
-                        <span class="tag">LLMs</span>
-                        <span class="tag">Cybersecurity</span>
-                        <span class="tag">Git / GitHub</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">C / C++</span>
-                        <span class="tag">Data Structures & Algorithms</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">SQL</span>
+    <main class="stage">
+        <section class="view active" id="resume-view" aria-label="Resume">
+            <article class="page resume-page" id="resume-page">
+                <header class="resume-header">
+                    <div class="photo-frame">
+                        <img src="photo.jpg" alt="Nontapat Auetrongjit">
                     </div>
-                </div>
-                <!-- QR + Contact -->
-                <div class="flex flex-col items-end gap-2.5 flex-shrink-0">
-                    <div class="flex flex-col items-center">
-                        <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer" class="qr-frame block" aria-label="Open Linktree profile">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://linktr.ee/nontapat_auetrongjit" alt="QR" crossorigin="anonymous">
+                    <div>
+                        <h1 class="name">NONTAPAT AUETRONGJIT</h1>
+                        <p class="headline">Second-Year Undergraduate - Computer Engineering & Digital Technology (Sandbox)</p>
+                        <p class="headline">Faculty of Engineering, Chulalongkorn University - Class of 2025</p>
+                        <div class="tag-list">
+                            <span class="tag">AI / ML</span>
+                            <span class="tag">Computer Vision / AIoT</span>
+                            <span class="tag">Tabular / Signal Processing</span>
+                            <span class="tag">Data Science</span>
+                            <span class="tag">LLMs</span>
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag">Git / GitHub</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">C / C++</span>
+                            <span class="tag">DS / Algo</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer" class="qr-frame" aria-label="Open Linktree profile">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://linktr.ee/nontapat_auetrongjit" alt="Linktree QR" crossorigin="anonymous">
                         </a>
-                        <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer" class="text-[0.52rem] text-slate-400 hover:text-brand transition mt-0.5">Link Tree</a>
+                        <a href="https://linktr.ee/nontapat_auetrongjit" target="_blank" rel="noopener noreferrer">Link Tree</a><br>
+                        <a href="mailto:nontaphatfirm@gmail.com">nontaphatfirm@gmail.com</a><br>
+                        <span>(+66) 95-396-9693</span><br>
+                        <a href="https://github.com/nontaphatfirm">github.com/nontaphatfirm</a><br>
+                        <span>Bangkok, Thailand</span><br>
+                        <span>DOB: 20/11/2007</span>
                     </div>
-                    <div class="text-right">
-                        <a href="mailto:nontaphatfirm@gmail.com" class="text-[0.68rem] text-slate-600 hover:text-brand transition block">nontaphatfirm@gmail.com</a>
-                        <p class="text-[0.68rem] text-slate-600 mt-0.5">(+66) 95-396-9693</p>
-                        <a href="https://github.com/nontaphatfirm" class="text-[0.68rem] text-slate-600 hover:text-brand transition block">github.com/nontaphatfirm</a>
-                        <p class="text-[0.68rem] text-slate-500 mt-0.5">Bangkok, Thailand</p>
-                        <p class="text-[0.68rem] text-slate-500 mt-0.5">DOB: 20/11/2007</p>
+                </header>
+
+                <div class="columns">
+                    <div>
+                        <section class="section">
+                            <div class="section-title">Education</div>
+                            <div class="entry">
+                                <div class="entry-title">Chulalongkorn University</div>
+                                <div class="entry-sub">B.Eng. in Computer Engineering & Digital Technology (Sandbox) - 2025 - Present</div>
+                            </div>
+                            <div class="entry">
+                                <div class="entry-title">Kasetsart University Laboratory School</div>
+                                <div class="entry-sub">Upper Secondary Level - GPA 3.94 - 2022 - 2024</div>
+                                <div class="entry-desc">Academic Excellence Honor Badge (2nd Place) - Certificates of Excellence for 12 consecutive years.</div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <div class="section-title">Awards</div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Academic Popular Vote - WellSense AIoT Hackathon</div>
+                                    <div class="entry-desc">Super AI Engineer Season 6 - Led software/model design for "FormWings," an IMU + ML on-device running-form analyzer - 2026.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Silver Medal - National & International Innovation Creation Project (Royal Trophy)</div>
+                                    <div class="entry-desc">For "AI Student Behavior Detector in Classroom" - Chulalongkorn University, 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">First Runner-Up - Cyber Skills Competition for Military Cadets & High School Students</div>
+                                    <div class="entry-desc">Royal Thai Armed Forces Headquarters - 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Gold Medal, 2nd Runner-Up - Computer Programming Competition (Grades 10-12)</div>
+                                    <div class="entry-desc">71st Student Arts & Crafts Fair, Bangkok - 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Thailand Mathematics Contest (TMC)</div>
+                                    <div class="entry-desc">Gold Medal, Grade 11 - 2024; Silver Medal, Grade 10 - 2023.</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <div class="section-title">Selected Programs</div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Super AI Engineer Season 6 Level 1 - 3</div>
+                                    <div class="entry-desc">AIAT pathway from 10,000+ Level 1 applicants to 150 Level 2 qualifiers - MOOC, hackathons, onsite bootcamp, and AXONS apprenticeship - Apr 2026 - Present.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Thailand Olympiad in Informatics (TOI 20th)</div>
+                                    <div class="entry-desc">Represented POSN Computer Center - May 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">POSN Olympiad in Informatics Training</div>
+                                    <div class="entry-desc">Camp 1: 2 - 18 Oct 2023; Camp 2: 18 Mar - 3 Apr 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">AI Builders Camp, VISTEC</div>
+                                    <div class="entry-desc">1 of 45 selected from 500+ applicants - 10-week AI training - Apr - Jun 2024.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Thailand Mathematics Academic Camp (TMAC)</div>
+                                    <div class="entry-desc">11th TMAC - 2023.</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <div class="section-title">Competitions</div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">I-Squared Hackathon 2025 - 5th of 17 teams</div>
+                                    <div class="entry-desc">Undergraduate Data Science & ML competition sponsored by Google, Gulf, and Bright Hair Studio.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Thailand Cyber Top Talent 2024 - 12th of 283 teams</div>
+                                    <div class="entry-desc">Represented Kasetsart University Laboratory School. Also 2023: 24th of 272 teams.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">BangMod Hackathon 2024 - Top 36 of 283 teams</div>
+                                    <div class="entry-desc">C-language competitive programming. Also participated in 2023.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Mental Health Hackathon 2024</div>
+                                    <div class="entry-desc">Developed "Chat & Chill," an AI-powered stress-reduction game, at KMUTT.</div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
+
+                    <aside class="compact">
+                        <section class="section">
+                            <div class="section-title">Projects</div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">AI Classroom Behavior Detection</div>
+                                    <div class="entry-desc">Real-time computer-vision behavior detector. Silver Medal, 9th Demonstration Academic Fair 2024, Chulalongkorn University.</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <div class="section-title">Experience</div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">AI Engineer Intern</div>
+                                    <div class="entry-sub">AXONS - AXONS Eyes Team, Computer Vision - Jun 2026 - Present</div>
+                                    <div class="entry-desc">Currently developing an applied AI project, supporting model evaluation, data pipelines, and edge-focused computer-vision deployment.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">DevOps & Security Member</div>
+                                    <div class="entry-sub">Friday Activity Crew Club, CEDT - 2025 - Present</div>
+                                    <div class="entry-desc">Manage DevOps and security for CEDT Talent Journey. Build admin tools for attendance and credit approvals.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Member</div>
+                                    <div class="entry-sub">KUS Computer Technology Club - 2023 - 2024</div>
+                                    <div class="entry-desc">Explored CS fundamentals and emerging tech through workshops.</div>
+                                </div>
+                            </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">-</span>
+                                <div>
+                                    <div class="entry-title">Student Committee, Academic Division</div>
+                                    <div class="entry-sub">Kasetsart University Laboratory School - 2024</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="section">
+                            <div class="section-title">Other</div>
+                            <div class="entry-desc">
+                                "GEN WIT TV DEMO SS1" (Workpoint Channel 23)<br>
+                                Classical guitar - Table tennis - Badminton
+                            </div>
+                        </section>
+                    </aside>
                 </div>
+            </article>
+        </section>
+
+        <section class="view" id="cv-view" aria-label="Curriculum Vitae">
+            <div class="cv-document" id="cv-document">
+                <article class="page cv-page">
+                    <header class="cv-cover">
+                        <div class="photo-frame">
+                            <img src="photo.jpg" alt="Nontapat Auetrongjit">
+                        </div>
+                        <div>
+                            <h1 class="cv-title">Nontapat Auetrongjit</h1>
+                            <div class="cv-kicker">Curriculum Vitae</div>
+                            <p class="cv-summary">
+                                Second-year undergraduate student in Computer Engineering and Digital Technology (Sandbox), Faculty of Engineering, Chulalongkorn University. My work and learning path focus on artificial intelligence, computer vision, AIoT, data science, cybersecurity, and software systems. This CV expands the one-page resume into a chronological record of education, training, competitions, awards, projects, leadership, and technical growth.
+                            </p>
+                            <div class="cv-contact">
+                                <span>Email: <a href="mailto:nontaphatfirm@gmail.com">nontaphatfirm@gmail.com</a></span>
+                                <span>Phone: (+66) 95-396-9693</span>
+                                <span>GitHub: <a href="https://github.com/nontaphatfirm">github.com/nontaphatfirm</a></span>
+                                <span>Linktree: <a href="https://linktr.ee/nontapat_auetrongjit">linktr.ee/nontapat_auetrongjit</a></span>
+                                <span>Location: Bangkok, Thailand</span>
+                                <span>Date of Birth: 20 November 2007</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <section class="cv-section">
+                        <div class="cv-section-title">Education</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2025 - Present</div>
+                            <div class="cv-block">
+                                <h3>Chulalongkorn University</h3>
+                                <div class="cv-meta">B.Eng. in Computer Engineering and Digital Technology (Sandbox), Faculty of Engineering</div>
+                                <p>
+                                    Currently studying in an engineering program that combines computer engineering foundations with digital technology, software development, data-driven problem solving, and applied AI. My current academic direction connects algorithmic thinking, machine learning, computer vision, and practical engineering deployment.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2022 - 2024</div>
+                            <div class="cv-block">
+                                <h3>Kasetsart University Laboratory School</h3>
+                                <div class="cv-meta">Upper Secondary Level - GPA 3.94</div>
+                                <p>
+                                    Completed upper secondary education with strong academic performance and sustained participation in computer science, mathematics, cybersecurity, and innovation activities. Received the Academic Excellence Honor Badge, Second Place, and Certificates of Excellence in Academic Achievement and Good Conduct across 12 consecutive academic years.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2019 - 2021</div>
+                            <div class="cv-block">
+                                <h3>Kasetsart University Laboratory School</h3>
+                                <div class="cv-meta">Lower Secondary Level - GPA 3.90</div>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2013 - 2018</div>
+                            <div class="cv-block">
+                                <h3>Kasetsart University Laboratory School</h3>
+                                <div class="cv-meta">Primary Level - GPA 3.83</div>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2011 - 2012</div>
+                            <div class="cv-block">
+                                <h3>Pramandanijjanukroah School</h3>
+                                <div class="cv-meta">Kindergarten - Score 98%</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="cv-section">
+                        <div class="cv-section-title">Technical Skills</div>
+                        <div class="skill-table">
+                            <strong>Programming</strong>
+                            <span>Python, C, C++, Java, SQL</span>
+                            <strong>AI and Data</strong>
+                            <span>Machine learning, data analysis, tabular modeling, signal processing, computer vision, LLM applications</span>
+                            <strong>Engineering</strong>
+                            <span>Git/GitHub, DevOps fundamentals, dashboard development, data pipelines, edge-focused AI deployment</span>
+                            <strong>Security</strong>
+                            <span>Cybersecurity fundamentals, CTF-style problem solving, platform security awareness</span>
+                            <strong>Soft Skills</strong>
+                            <span>Problem solving, adaptability, growth mindset, teamwork, collaboration, independent research</span>
+                        </div>
+                    </section>
+                </article>
+
+                <article class="page cv-page">
+                    <section class="cv-section">
+                        <div class="cv-section-title">Experience and Leadership</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">Jun 2026 - Present</div>
+                            <div class="cv-block">
+                                <h3>AI Engineer Intern - AXONS</h3>
+                                <div class="cv-meta">AXONS Eyes Team, Computer Vision</div>
+                                <p>
+                                    Currently developing an applied AI project for the AXONS Eyes Team, with work spanning computer-vision model evaluation, data pipelines, visual-quality analysis, and edge-focused deployment. The internship connects my academic AI and computer-vision experience with real industrial constraints and production-oriented project development.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2025 - Present</div>
+                            <div class="cv-block">
+                                <h3>DevOps & Security Member - Friday Activity Crew Club, CEDT</h3>
+                                <p>
+                                    Contribute to DevOps and security work for CEDT Talent Journey, a student activity management platform supporting event registration, evaluations, attendance tracking, and credit equivalence. Responsibilities include improving platform security, developing administrative tools, and supporting workflows for staff to review activity information and approve credit transfer requests.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>Student Committee, Academic Division</h3>
+                                <div class="cv-meta">Kasetsart University Laboratory School</div>
+                                <p>
+                                    Served as a Grade 12 student committee member in the Academic Division and acted as a liaison with the Information Technology Department, supporting academic coordination and technology-related communication within the school.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2023 - 2024</div>
+                            <div class="cv-block">
+                                <h3>KUS Computer Technology Club Member</h3>
+                                <p>
+                                    Participated in technology-focused workshops and collaborative activities to explore computer science fundamentals, emerging technologies, and practical development skills.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">27 - 31 Mar 2023</div>
+                            <div class="cv-block">
+                                <h3>Programmer Internship - KnowAre</h3>
+                                <p>
+                                    Completed a short internship and presented "Dynamic Chair," a project using ESP32 as a core component for a business-oriented application. The experience introduced me to applied programming, embedded prototyping, and communicating a technical concept in a workplace setting.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+
+                <article class="page cv-page">
+                    <section class="cv-section">
+                        <div class="cv-section-title">AI, Informatics, and Academic Programs</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">Apr 2026 - Present</div>
+                            <div class="cv-block">
+                                <h3>Super AI Engineer Season 6 Level 1 - 3</h3>
+                                <div class="cv-meta">Organized by the Artificial Intelligence Association of Thailand (AIAT)</div>
+                                <p>
+                                    Progressed through AIAT's national AI engineer development pathway, beginning with more than 10,000 Level 1 applicants and qualifying into the 150-participant Level 2 cohort. Level 1 covered AIAT MOOC upskill/reskill coursework, Foundation AI (Theory), and a qualification hackathon. Level 2 combined one month of online preparation, four mini-hackathons, and a one-month onsite intensive AI bootcamp with four industry-challenge hackathons across five AI domains, while building networks with leading instructors and experts.
+                                </p>
+                                <p>
+                                    Level 3 focuses on real workplace experience. I was selected for a two-month AI apprenticeship at AXONS, where I am developing an applied project before returning to present the internship project and complete the program-wide evaluation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">13 - 17 May 2024</div>
+                            <div class="cv-block">
+                                <h3>Thailand Olympiad in Informatics (TOI 20)</h3>
+                                <p>
+                                    Selected as a representative of the POSN Computer Center, Satriwithaya School under the Royal Patronage - Kasetsart University, and participated in the 20th Thailand Olympiad in Informatics. The experience strengthened my algorithmic thinking, competitive programming discipline, and ability to solve complex problems under time constraints.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">Oct 2023 - Apr 2024</div>
+                            <div class="cv-block">
+                                <h3>POSN Olympiad in Informatics Training</h3>
+                                <p>
+                                    Completed POSN Computer Science training through Camp 1 and Camp 2. Camp 1 was held from 2 - 18 October 2023 at Satriwithaya Mahapruettharam School Center under the Royal Patronage, Bangkok. Camp 2 was held from 18 March - 3 April 2024 at the Faculty of Science, Kasetsart University, Bangkok.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">Apr - Jun 2024</div>
+                            <div class="cv-block">
+                                <h3>AI Builders 2024 - VISTEC</h3>
+                                <p>
+                                    Selected as one of 45 participants from over 500 applicants to join a 10-week AI training and hands-on project development program organized by Vidyasirimedhi Institute of Science and Technology (VISTEC). The program introduced me to AI project development, independent research, and applied experimentation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2023</div>
+                            <div class="cv-block">
+                                <h3>Thailand Mathematics Academic Camp (TMAC)</h3>
+                                <p>
+                                    Participated in Thailand Mathematics Academic Camp activities, including the 11th TMAC from 29 April - 1 May 2023. This continued my long-term interest in mathematics and problem solving.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </article>
+
+                <article class="page cv-page">
+                    <section class="cv-section">
+                        <div class="cv-section-title">Projects</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>FormWings - On-Device Running-Form Analyzer</h3>
+                                <div class="cv-meta">WellSense AIoT Hackathon, Super AI Engineer Season 6</div>
+                                <p>
+                                    Led software and model design for a 10-member team building an on-device running-form analyzer. A Nano 33 BLE with an LSM9DS1 streams raw accelerometer and gyroscope data, while the UNO Q Linux side runs an XGBoost classifier with a TFLite Transformer fallback to assess cadence, vertical oscillation, ground contact time, trunk forward lean, heel-strike likelihood, and impact loading rate.
+                                </p>
+                                <p>
+                                    Integrated Modulino Thermo for real-time temperature, humidity, and heat-index context, broadcast results over BLE, and visualized the analysis on a React + Vite dashboard. The project received the Academic Popular Vote award at the WellSense AIoT Hackathon.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>AI Classroom Behavior Detection</h3>
+                                <p>
+                                    Developed a real-time computer-vision project that detects student behavior in classroom settings. The project grew from knowledge gained through AI Builders 2024 and required independent research across local and international references. It received a Silver Medal at the 9th Demonstration Academic Fair 2024 under the National and International Innovation Creation Project at Chulalongkorn University Demonstration School.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>Chat & Chill</h3>
+                                <div class="cv-meta">Mental Health Hackathon 2024, KMUTT</div>
+                                <p>
+                                    Participated as part of the development team for an AI-powered game designed to reduce stress and support mental-health awareness. The project explored how conversational AI and game design can create a listening-oriented experience for users.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+
+                <article class="page cv-page">
+                    <section class="cv-section">
+                        <div class="cv-section-title">Awards and Honors</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>Academic Popular Vote - WellSense AIoT Hackathon</h3>
+                                <p>
+                                    Received the Academic Popular Vote award for "FormWings," an on-device running-form analyzer developed during Super AI Engineer Season 6.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">8 - 9 Aug 2024</div>
+                            <div class="cv-block">
+                                <h3>Silver Medal - National and International Innovation Creation Project for the Royal Trophy</h3>
+                                <p>
+                                    Received a Silver Medal, 2,000-baht scholarship, and trophy at the 9th Demonstration Academic Fair, "Essential Soft Skills for the Future," Upper Secondary Level, held at the Faculty of Education, Chulalongkorn University, for "AI Student Behavior Detector in Classroom."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">4 Jul 2024</div>
+                            <div class="cv-block">
+                                <h3>First Runner-Up - Cyber Skills Competition for Military Cadets and High School Students</h3>
+                                <p>
+                                    Received First Runner-Up Team Award with a 10,000-baht scholarship, honorary plaque, and medals from the Royal Thai Armed Forces Headquarters.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>Gold Medal - Thailand Mathematics Contest (TMC), Grade 11</h3>
+                                <p>Received a Gold Medal in the 12th Thailand Mathematics Contest for outstanding mathematical ability.</p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2023</div>
+                            <div class="cv-block">
+                                <h3>Silver Medal - Thailand Mathematics Contest (TMC), Grade 10</h3>
+                                <p>Received a Silver Medal in the 11th Thailand Mathematics Contest for outstanding mathematical ability.</p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">Jan 2024</div>
+                            <div class="cv-block">
+                                <h3>Gold Medal, 2nd Runner-Up - Computer Programming Competition (Grades 10-12)</h3>
+                                <p>
+                                    Received the award at the 71st Student Arts and Crafts Fair, Bangkok Educational Service Area Office 2, Academic Year 2023.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">21 Feb 2024</div>
+                            <div class="cv-block">
+                                <h3>Academic Excellence Honor Badge, Second Place</h3>
+                                <p>
+                                    Awarded by Kasetsart University Laboratory School to students with outstanding academic ability and exemplary conduct.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2013 - 2024</div>
+                            <div class="cv-block">
+                                <h3>Certificates of Excellence - 12 Consecutive Academic Years</h3>
+                                <p>
+                                    Received Certificates of Excellence in Academic Achievement and Good Conduct throughout the full 12-year period from primary education through upper secondary level.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </article>
+
+                <article class="page cv-page">
+                    <section class="cv-section">
+                        <div class="cv-section-title">Competitions and Activities</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2025</div>
+                            <div class="cv-block">
+                                <h3>I-Squared Hackathon - 5th of 17 Teams</h3>
+                                <p>
+                                    Achieved 5th place in an undergraduate-level Data Science and Machine Learning competition sponsored by Google, Gulf, and Bright Hair Studio. The team was composed entirely of first-year students.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>Thailand Cyber Top Talent - 12th of 283 Teams</h3>
+                                <p>
+                                    Represented Kasetsart University Laboratory School in the national high-school cybersecurity competition. Also competed in Thailand Cyber Top Talent 2023 and placed 24th out of 272 teams.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2023 - 2024</div>
+                            <div class="cv-block">
+                                <h3>BangMod Hackathon</h3>
+                                <p>
+                                    Participated in C-language computer programming problem-solving competitions. In 2024, the team advanced to Round 2 and placed among the top 36 teams out of 283 teams nationwide.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>GEN WIT TV DEMO SS1</h3>
+                                <p>
+                                    Represented Kasetsart University Laboratory School in producing a demo for Workpoint Channel 23's "GEN WIT TV," a quiz competition involving science, engineering, mathematics, and technology.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="cv-section">
+                        <div class="cv-section-title">Hobbies and Interests</div>
+                        <div class="cv-block">
+                            <p>
+                                Classical guitar, table tennis, badminton, exploring technology-related content, and staying updated on emerging trends in AI, software engineering, and digital technology.
+                            </p>
+                        </div>
+                    </section>
+                </article>
             </div>
-        </header>
+        </section>
+    </main>
 
-        <!-- Two Column Body -->
-        <div class="flex-1 flex gap-6">
-
-            <!-- Left Column -->
-            <div class="flex-1 min-w-0">
-
-                <!-- Education -->
-                <div class="mb-3.5">
-                    <div class="section-title">Education</div>
-                    <div class="entry">
-                        <div class="entry-title">Chulalongkorn University</div>
-                        <div class="entry-sub">B.Eng. in Computer Engineering & Digital Technology (Sandbox) · 2025 – Present</div>
-                    </div>
-                    <div class="entry">
-                        <div class="entry-title">Kasetsart University Laboratory School</div>
-                        <div class="entry-sub">Upper Secondary Level · GPA 3.94 · 2022 – 2024</div>
-                        <div class="entry-desc">Academic Excellence Honor Badge (2<sup>nd</sup> Place) · Certificates of Excellence — 12 consecutive years</div>
-                    </div>
-                </div>
-
-                <!-- Awards -->
-                <div class="mb-3.5">
-                    <div class="section-title">Awards</div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Academic Popular Vote — WellSense AIoT Hackathon</div>
-                            <div class="entry-desc">Super AI Engineer Season 6 · Built "FormWings," an on-device running-form analyzer using IMU sensing, ML, BLE, and a React dashboard · 2026</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Silver Medal — National & International Innovation Creation Project (Royal Trophy)</div>
-                            <div class="entry-desc">For "AI Student Behavior Detector in Classroom" · Chulalongkorn Univ., 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">First Runner-Up — Cyber Skills Competition for Military Cadets & High School Students</div>
-                            <div class="entry-desc">Royal Thai Armed Forces HQ · 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Gold Medal, 2<sup>nd</sup> Runner-Up — Computer Programming Competition (Gr. 10–12)</div>
-                            <div class="entry-desc">71<sup>st</sup> Student Arts & Crafts Fair, Bangkok · 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Gold Medal — Thailand Mathematics Contest (TMC), Grade 11</div>
-                            <div class="entry-desc">International Mathematics Contest Union at UTCC · 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Silver Medal — Thailand Mathematics Contest (TMC), Grade 10</div>
-                            <div class="entry-desc">International Mathematics Contest Union at UTCC · 2023</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Selected Programs -->
-                <div class="mb-3.5">
-                    <div class="section-title">Selected Programs</div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Super AI Engineer Season 6 Level 1 - 3</div>
-                            <div class="entry-desc">Selected among the top 150 out of 10,000+ applicants · 2-month online & onsite intensive AI training & hackathon · 2-month AI apprenticeship · Apr – Aug 2026</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Thailand Olympiad in Informatics (TOI 20<sup>th</sup>)</div>
-                            <div class="entry-desc">Represented POSN Computer Center · May 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">POSN Olympiad in Informatics Training (Computer Science)</div>
-                            <div class="entry-desc">Camp 1 & Camp 2 · Oct 2023 – Apr 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">AI Builders Camp, VISTEC</div>
-                            <div class="entry-desc">1 of 45 selected from 500+ applicants · 10-week AI training · Apr – Jun 2024</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Thailand Mathematics Academic Camp (TMAC)</div>
-                            <div class="entry-desc">11<sup>th</sup> TMAC · 2023</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Competitions -->
-                <div>
-                    <div class="section-title">Competitions</div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">I-Squared Hackathon 2025 — 5<sup>th</sup> of 17 teams</div>
-                            <div class="entry-desc">Undergraduate DS & ML competition sponsored by Google, Gulf & Bright Hair Studio.</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Thailand Cyber Top Talent 2024 — 12<sup>th</sup> of 283 teams</div>
-                            <div class="entry-desc">Represented Kasetsart Univ. Lab School. Also 2023 (24<sup>th</sup> of 272 teams).</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">BangMod Hackathon 2024 — Top 36 of 283 teams (Round 2<sup>nd</sup>)</div>
-                            <div class="entry-desc">C-language competitive programming. Also participated in 2023.</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Mental Health Hackathon 2024</div>
-                            <div class="entry-desc">Developed "Chat & Chill," an AI-powered stress-reduction game, at KMUTT.</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Right Column -->
-            <div class="w-[170px] flex-shrink-0">
-
-                <!-- Projects -->
-                <div class="mb-3.5">
-                    <div class="section-title">Projects</div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">AI Classroom Behavior Detection</div>
-                            <div class="entry-desc">Real-time CV behavior detector. Silver Medal, 9<sup>th</sup> Demonstration Academic Fair 2024, Chulalongkorn Univ.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Experience -->
-                <div class="mb-3.5">
-                    <div class="section-title">Experience</div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">AI Engineer Intern</div>
-                            <div class="entry-sub">AXONS · AXONS Eyes Team, Computer Vision · Jun 2026 – Aug 2026</div>
-                            <div class="entry-desc">Develop computer-vision and AIoT solutions, supporting model evaluation, data pipelines, and edge-focused deployment.</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">DevOps & Security Member</div>
-                            <div class="entry-sub">Friday Activity Crew Club, CEDT · 2025 – Present</div>
-                            <div class="entry-desc">Manage DevOps & security for CEDT Talent Journey platform. Build admin tools for attendance & credit approvals.</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Member</div>
-                            <div class="entry-sub">KUS Computer Technology Club · 2023 – 2024</div>
-                            <div class="entry-desc">Explored CS fundamentals & emerging tech through workshops.</div>
-                        </div>
-                    </div>
-                    <div class="bullet-item">
-                        <span class="bullet-char">•</span>
-                        <div>
-                            <div class="entry-title">Student Committee, Academic Div.</div>
-                            <div class="entry-sub">Kasetsart Univ. Lab School · 2024</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Other -->
-                <div>
-                    <div class="section-title">Other</div>
-                    <div class="entry-desc">
-                        • Foundation AI (Theory) — Super AI Engineer Season 6, AiAT · 18 Apr 2026<br>
-                        • "GEN WIT TV DEMO SS1" (Workpoint Ch. 23)<br>
-                        • Classical guitar · Table tennis · Badminton
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- html2canvas for PNG export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-        function exportImage() {
-            const btn = event.target.closest('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<svg class="animate-spin" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Generating...';
-            btn.disabled = true;
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const views = document.querySelectorAll(".view");
 
-            const el = document.getElementById('cv-page');
-            html2canvas(el, {
+        function setActiveView(targetId) {
+            tabButtons.forEach((button) => {
+                button.classList.toggle("active", button.dataset.target === targetId);
+            });
+            views.forEach((view) => {
+                view.classList.toggle("active", view.id === targetId);
+            });
+            document.title = targetId === "cv-view"
+                ? "Nontapat Auetrongjit - Curriculum Vitae"
+                : "Nontapat Auetrongjit - Resume";
+        }
+
+        tabButtons.forEach((button) => {
+            button.addEventListener("click", () => setActiveView(button.dataset.target));
+        });
+
+        const requestedView = new URLSearchParams(window.location.search).get("view");
+        if (requestedView === "cv") {
+            setActiveView("cv-view");
+        } else {
+            setActiveView("resume-view");
+        }
+
+        function exportImage() {
+            const activeView = document.querySelector(".view.active");
+            const target = activeView.id === "cv-view"
+                ? document.querySelector("#cv-document .cv-page")
+                : document.getElementById("resume-page");
+            const button = event.target.closest("button");
+            const originalText = button.textContent;
+            button.textContent = "Generating";
+            button.disabled = true;
+
+            html2canvas(target, {
                 scale: 3,
                 useCORS: true,
                 allowTaint: true,
-                backgroundColor: '#ffffff',
-                width: el.offsetWidth,
-                height: el.offsetHeight,
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'Nontapat_Auetrongjit_CV.png';
-                link.href = canvas.toDataURL('image/png');
+                backgroundColor: "#ffffff"
+            }).then((canvas) => {
+                const link = document.createElement("a");
+                link.download = activeView.id === "cv-view"
+                    ? "Nontapat_Auetrongjit_CV_Page_1.png"
+                    : "Nontapat_Auetrongjit_Resume.png";
+                link.href = canvas.toDataURL("image/png");
                 link.click();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
             }).catch(() => {
-                alert('PNG export failed. Please use "Print as PDF" instead.');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                alert("PNG export failed. Please use Print instead.");
+            }).finally(() => {
+                button.textContent = originalText;
+                button.disabled = false;
             });
         }
     </script>
-
 </body>
 </html>
