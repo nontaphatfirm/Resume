@@ -39,6 +39,12 @@
             text-decoration: none;
         }
 
+        sup {
+            font-size: 0.65em;
+            line-height: 0;
+            vertical-align: super;
+        }
+
         .toolbar {
             position: fixed;
             top: 16px;
@@ -467,6 +473,311 @@
             text-align: right;
         }
 
+        @media screen and (max-width: 860px) {
+            body {
+                background: var(--paper);
+                overflow-x: hidden;
+            }
+
+            .toolbar {
+                position: sticky;
+                top: 0;
+                right: auto;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 8px;
+                border-width: 0 0 1px;
+                border-radius: 0;
+                box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+            }
+
+            .tab-button,
+            .action-button {
+                height: 34px;
+                padding: 0 11px;
+                font-size: 12px;
+            }
+
+            .stage {
+                display: block;
+                padding: 0;
+            }
+
+            .view {
+                display: none;
+            }
+
+            .view.active {
+                display: block;
+            }
+
+            .page {
+                width: 100%;
+                max-width: 100%;
+                min-height: auto;
+                box-shadow: none;
+            }
+
+            .resume-page,
+            .cv-page {
+                height: auto;
+                min-height: auto;
+                overflow: visible;
+                padding: 22px 16px 28px;
+            }
+
+            .resume-page {
+                display: block;
+            }
+
+            .resume-header {
+                grid-template-columns: 72px minmax(0, 1fr);
+                gap: 12px;
+                margin-bottom: 18px;
+            }
+
+            .resume-header > *,
+            .cv-cover > *,
+            .columns > *,
+            .cv-grid > *,
+            .bullet-item > div,
+            .cv-block {
+                min-width: 0;
+            }
+
+            .photo-frame {
+                width: 72px;
+                height: 100px;
+            }
+
+            .name {
+                font-size: 24px;
+                line-height: 1.08;
+                overflow-wrap: anywhere;
+            }
+
+            .headline {
+                font-size: 13px;
+                line-height: 1.45;
+                overflow-wrap: anywhere;
+            }
+
+            .tag-list {
+                gap: 5px;
+                margin-top: 9px;
+            }
+
+            .tag {
+                max-width: 100%;
+                min-height: 22px;
+                padding: 3px 8px;
+                font-size: 11px;
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .contact-card {
+                grid-column: 1 / -1;
+                display: block;
+                min-height: 64px;
+                text-align: left;
+                font-size: 12px;
+                line-height: 1.55;
+                overflow-wrap: anywhere;
+            }
+
+            .contact-card .qr-frame {
+                float: left;
+                width: 56px;
+                height: 56px;
+                margin: 0 12px 8px 0;
+            }
+
+            .columns,
+            .cv-grid,
+            .skill-table {
+                grid-template-columns: 1fr;
+            }
+
+            .columns {
+                gap: 0;
+            }
+
+            .section {
+                margin-bottom: 18px;
+            }
+
+            .section-title,
+            .cv-section-title {
+                margin-bottom: 10px;
+                font-size: 12px;
+                line-height: 1.15;
+                letter-spacing: 0.08em;
+            }
+
+            .entry {
+                margin-bottom: 10px;
+            }
+
+            .entry-title,
+            .compact .entry-title {
+                font-size: 14px;
+                line-height: 1.35;
+                overflow-wrap: anywhere;
+            }
+
+            .entry-sub,
+            .entry-desc,
+            .compact .entry-sub,
+            .compact .entry-desc {
+                font-size: 13px;
+                line-height: 1.5;
+                overflow-wrap: anywhere;
+            }
+
+            .bullet-item {
+                grid-template-columns: 10px 1fr;
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+
+            .bullet-char {
+                font-size: 13px;
+                line-height: 1.45;
+            }
+
+            .cv-document {
+                width: 100%;
+                gap: 0;
+            }
+
+            .cv-page {
+                page-break-after: auto;
+                break-after: auto;
+            }
+
+            .cv-page + .cv-page {
+                border-top: 10px solid #eef2f6;
+            }
+
+            .cv-cover {
+                grid-template-columns: 76px minmax(0, 1fr);
+                gap: 12px;
+                padding-bottom: 16px;
+                margin-bottom: 18px;
+            }
+
+            .cv-cover .photo-frame {
+                width: 76px;
+                height: 98px;
+            }
+
+            .cv-title {
+                font-size: 27px;
+                line-height: 1.08;
+                overflow-wrap: anywhere;
+            }
+
+            .cv-kicker {
+                font-size: 12px;
+                line-height: 1.35;
+            }
+
+            .cv-summary,
+            .cv-block p,
+            .cv-block li {
+                font-size: 13.5px;
+                line-height: 1.62;
+                overflow-wrap: anywhere;
+            }
+
+            .cv-contact {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                font-size: 12px;
+                line-height: 1.45;
+            }
+
+            .cv-linktree-card {
+                grid-column: 1 / -1;
+                display: block;
+                min-height: 72px;
+                text-align: left;
+                font-size: 12px;
+                line-height: 1.4;
+                padding-top: 2px;
+                overflow-wrap: anywhere;
+            }
+
+            .cv-linktree-card .qr-frame {
+                float: left;
+                width: 64px;
+                height: 64px;
+                margin: 0 12px 8px 0;
+            }
+
+            .cv-grid {
+                gap: 5px;
+                margin-bottom: 18px;
+            }
+
+            .cv-date {
+                font-size: 12px;
+                line-height: 1.35;
+            }
+
+            .cv-block h3 {
+                font-size: 16px;
+                line-height: 1.3;
+                overflow-wrap: anywhere;
+            }
+
+            .cv-meta,
+            .project-link {
+                font-size: 12.5px !important;
+                line-height: 1.45 !important;
+                overflow-wrap: anywhere;
+            }
+
+            .skill-table {
+                gap: 6px;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .page-number {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .resume-page,
+            .cv-page {
+                padding-right: 14px;
+                padding-left: 14px;
+            }
+
+            .resume-header,
+            .cv-cover {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card,
+            .cv-linktree-card {
+                min-height: 64px;
+            }
+
+            .name {
+                font-size: 22px;
+            }
+
+            .cv-title {
+                font-size: 24px;
+            }
+        }
+
         @media print {
             *, *::before, *::after {
                 -webkit-print-color-adjust: exact !important;
@@ -643,13 +954,13 @@
                                 <span class="bullet-char">-</span>
                                 <div>
                                     <div class="entry-title">Super AI Engineer Season 6 Level 1 - 3</div>
-                                    <div class="entry-desc">AIAT pathway from 10,000+ Level 1 applicants to 150 Level 2 qualifiers - MOOC, hackathons, onsite bootcamp, and AXONS apprenticeship - Apr 2026 - Present.</div>
+                                    <div class="entry-desc">AIAT pathway from 10,000+ Level 1 applicants to 150 Level 2 qualifiers - MOOC, hackathons, onsite bootcamp, and AXONS Corporate apprenticeship - Apr 2026 - Present.</div>
                                 </div>
                             </div>
                             <div class="bullet-item">
                                 <span class="bullet-char">-</span>
                                 <div>
-                                    <div class="entry-title">Thailand Olympiad in Informatics (TOI 20th)</div>
+                                    <div class="entry-title">Thailand Olympiad in Informatics (TOI 20<sup>th</sup>)</div>
                                     <div class="entry-desc">Represented POSN Computer Center - May 2024.</div>
                                 </div>
                             </div>
@@ -663,8 +974,8 @@
                             <div class="bullet-item">
                                 <span class="bullet-char">-</span>
                                 <div>
-                                    <div class="entry-title">AI Builders Camp, VISTEC</div>
-                                    <div class="entry-desc">1 of 45 selected from 500+ applicants - 10-week AI training - Apr - Jun 2024.</div>
+                                    <div class="entry-title">AI Builders 2024</div>
+                                    <div class="entry-desc">VISTEC - 1 of 45 selected from 500+ applicants - 10-week AI training - Apr - Jun 2024.</div>
                                 </div>
                             </div>
                             <div class="bullet-item">
@@ -727,7 +1038,7 @@
                                 <span class="bullet-char">-</span>
                                 <div>
                                     <div class="entry-title">AI Engineer Intern</div>
-                                    <div class="entry-sub">AXONS - AXONS Eyes Team, Computer Vision - Jun 2026 - Present</div>
+                                    <div class="entry-sub">AXONS Corporate - AXONS Eyes Team, Computer Vision - Jun 2026 - Present</div>
                                     <div class="entry-desc">Currently developing an applied AI project, supporting model evaluation, data pipelines, and edge-focused computer-vision deployment.</div>
                                 </div>
                             </div>
@@ -866,10 +1177,10 @@
                         <div class="cv-grid">
                             <div class="cv-date">Jun 2026 - Present</div>
                             <div class="cv-block">
-                                <h3>AI Engineer Intern - AXONS</h3>
+                                <h3>AI Engineer Intern - AXONS Corporate</h3>
                                 <div class="cv-meta">AXONS Eyes Team, Computer Vision</div>
                                 <p>
-                                    Currently developing an applied AI project for the AXONS Eyes Team, with work spanning computer-vision model evaluation, data pipelines, visual-quality analysis, and edge-focused deployment. The internship connects my academic AI and computer-vision experience with real industrial constraints and production-oriented project development.
+                                    Currently developing an applied AI project for AXONS Corporate's AXONS Eyes Team, with work spanning computer-vision model evaluation, data pipelines, visual-quality analysis, and edge-focused deployment. The internship connects my academic AI and computer-vision experience with real industrial constraints and production-oriented project development.
                                 </p>
                             </div>
                         </div>
@@ -925,16 +1236,16 @@
                                     Progressed through AIAT's national AI engineer development pathway, beginning with more than 10,000 Level 1 applicants and qualifying into the 150-participant Level 2 cohort. Level 1 covered AIAT MOOC upskill/reskill coursework, Foundation AI (Theory), and a qualification hackathon. Level 2 combined one month of online preparation, four mini-hackathons, and a one-month onsite intensive AI bootcamp with four industry-challenge hackathons across five AI domains, while building networks with leading instructors and experts.
                                 </p>
                                 <p>
-                                    Level 3 focuses on real workplace experience. I was selected for a two-month AI apprenticeship at AXONS, where I am developing an applied project before returning to present the internship project and complete the program-wide evaluation.
+                                    Level 3 focuses on real workplace experience. I was selected for a two-month AI apprenticeship at AXONS Corporate, where I am developing an applied project before returning to present the internship project and complete the program-wide evaluation.
                                 </p>
                             </div>
                         </div>
                         <div class="cv-grid">
                             <div class="cv-date">13 - 17 May 2024</div>
                             <div class="cv-block">
-                                <h3>Thailand Olympiad in Informatics (TOI 20)</h3>
+                                <h3>Thailand Olympiad in Informatics (TOI 20<sup>th</sup>)</h3>
                                 <p>
-                                    Selected as a representative of the POSN Computer Center, Satriwithaya School under the Royal Patronage - Kasetsart University, and participated in the 20th Thailand Olympiad in Informatics. The experience strengthened my algorithmic thinking, competitive programming discipline, and ability to solve complex problems under time constraints.
+                                    Selected as a representative of the POSN Computer Center, Satriwithaya School under the Royal Patronage - Kasetsart University, and participated in the 20<sup>th</sup> Thailand Olympiad in Informatics. The experience strengthened my algorithmic thinking, competitive programming discipline, and ability to solve complex problems under time constraints.
                                 </p>
                             </div>
                         </div>
@@ -950,7 +1261,7 @@
                         <div class="cv-grid">
                             <div class="cv-date">Apr - Jun 2024</div>
                             <div class="cv-block">
-                                <h3>AI Builders 2024 - VISTEC</h3>
+                                <h3>AI Builders 2024</h3>
                                 <p>
                                     Selected as one of 45 participants from over 500 applicants to join a 10-week AI training and hands-on project development program organized by Vidyasirimedhi Institute of Science and Technology (VISTEC). The program introduced me to AI project development, independent research, and applied experimentation.
                                 </p>
