@@ -140,7 +140,7 @@
             position: relative;
             height: 297mm;
             overflow: hidden;
-            padding: 13.5mm 17mm 14.5mm;
+            padding: 14.5mm 17mm 15mm;
             page-break-after: always;
             break-after: page;
         }
@@ -374,15 +374,20 @@
         }
 
         .cv-page:first-child {
-            padding: 16mm 17mm;
+            padding: 14.5mm 17mm 15mm;
+        }
+
+        .cv-page:first-child .cv-cover {
+            padding-bottom: 16px;
+            margin-bottom: 18px;
         }
 
         .cv-page:first-child .cv-section {
-            margin-top: 26px;
+            margin-top: 24px;
         }
 
         .cv-page:first-child .cv-grid {
-            margin-bottom: 16px;
+            margin-bottom: 11px;
         }
 
         .cv-page:first-child .cv-grid:last-child {
@@ -390,8 +395,7 @@
         }
 
         .cv-page:first-child .skill-table {
-            gap: 11px 14px;
-            line-height: 1.55;
+            gap: 6px 16px;
         }
 
         .cv-cover .photo-frame {
@@ -404,7 +408,7 @@
             justify-content: space-between;
             align-items: center;
             padding-bottom: 6px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             border-bottom: 1px solid #e6ebf2;
             color: #94a3b8;
             font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -474,7 +478,7 @@
             display: grid;
             grid-template-columns: 126px 1fr;
             gap: 16px;
-            margin-bottom: 8.5px;
+            margin-bottom: 11.5px;
             break-inside: avoid;
             page-break-inside: avoid;
         }
@@ -486,14 +490,14 @@
         .cv-date {
             color: var(--accent);
             font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            font-size: 10.5px;
+            font-size: 10.6px;
             line-height: 1.35;
             font-weight: 700;
             text-transform: uppercase;
         }
 
         .cv-block h3 {
-            font-size: 13.7px;
+            font-size: 13.8px;
             line-height: 1.25;
             font-weight: 700;
         }
@@ -509,8 +513,8 @@
         .cv-block p,
         .cv-block li {
             color: #344054;
-            font-size: 10.8px;
-            line-height: 1.47;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
         .cv-block p {
@@ -518,15 +522,29 @@
         }
 
         .cv-block ul {
-            margin: 6px 0 0;
-            padding-left: 17px;
+            margin: 4.5px 0 0;
+            padding-left: 16px;
+        }
+
+        .cv-block li {
+            margin-bottom: 2.5px;
+        }
+
+        .cv-block li:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-block li strong {
+            color: var(--brand);
+            font-weight: 600;
         }
 
         .project-link {
             color: var(--muted);
-            font-size: 10.3px !important;
-            line-height: 1.36 !important;
+            font-size: 10.4px !important;
+            line-height: 1.38 !important;
             font-weight: 600;
+            margin-top: 4.5px !important;
         }
 
         .project-link a {
@@ -535,7 +553,7 @@
         }
 
         .cv-section {
-            margin-top: 14px;
+            margin-top: 24px;
         }
 
         .cv-section:first-child,
@@ -544,8 +562,8 @@
         }
 
         .cv-section-title {
-            margin-bottom: 9px;
-            padding-bottom: 5px;
+            margin-bottom: 11px;
+            padding-bottom: 6px;
             border-bottom: 1.5px solid var(--brand);
             font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             color: var(--brand);
@@ -558,16 +576,41 @@
 
         .skill-table {
             display: grid;
-            grid-template-columns: 146px 1fr;
-            gap: 7px 14px;
+            grid-template-columns: 126px 1fr;
+            gap: 6px 16px;
+            align-items: center;
             color: #344054;
-            font-size: 11.1px;
-            line-height: 1.48;
+            font-size: 10.5px;
+            line-height: 1.4;
         }
 
         .skill-table strong {
             color: var(--brand);
             font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            font-size: 10.2px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.5px 6.5px;
+            border: 1px solid #dbe3ee;
+            border-radius: 4px;
+            background: #f8fafc;
+            color: #1e293b;
+            font-size: 9.9px;
+            line-height: 1.35;
+            font-weight: 500;
+            white-space: nowrap;
         }
 
         .page-number {
@@ -1048,16 +1091,16 @@
             }
 
             .cv-running-header {
-                margin-bottom: 9px !important;
-                padding-bottom: 5px !important;
+                margin-bottom: 12px !important;
+                padding-bottom: 6px !important;
             }
 
             .cv-section {
-                margin-top: 14px !important;
+                margin-top: 23px !important;
             }
 
             .cv-page:first-child .cv-section {
-                margin-top: 20px !important;
+                margin-top: 23px !important;
             }
 
             .cv-section:first-child,
@@ -1066,12 +1109,12 @@
             }
 
             .cv-section-title {
-                margin-bottom: 9px !important;
-                padding-bottom: 5px !important;
+                margin-bottom: 10.5px !important;
+                padding-bottom: 5.5px !important;
             }
 
             .cv-grid {
-                margin-bottom: 8.5px !important;
+                margin-bottom: 11px !important;
             }
 
             .cv-grid:last-child {
@@ -1080,7 +1123,7 @@
 
             .cv-block p,
             .cv-block li {
-                line-height: 1.46 !important;
+                line-height: 1.48 !important;
             }
         }
     </style>
@@ -1328,6 +1371,13 @@
                                     <div class="entry-desc">Built a YOLO-based detector to recognize student classroom behaviors and deployed a Gradio image/video web demo; won Silver Medal.</div>
                                 </div>
                             </div>
+                            <div class="bullet-item">
+                                <span class="bullet-char">&bull;</span>
+                                <div>
+                                    <div class="entry-title">Dream Tour - AI Travel Recommender</div>
+                                    <div class="entry-desc">Built a three-agent Gemini + Tavily + Gradio web app turning mood photos into tailored Thailand travel recommendations.</div>
+                                </div>
+                            </div>
                         </section>
                     </aside>
                 </div>
@@ -1385,58 +1435,79 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2019 - 2021</div>
-                            <div class="cv-block">
-                                <h3>Kasetsart University Laboratory School</h3>
-                                <div class="cv-meta">Lower Secondary Level - GPA 3.90</div>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2013 - 2018</div>
-                            <div class="cv-block">
-                                <h3>Kasetsart University Laboratory School</h3>
-                                <div class="cv-meta">Primary Level - GPA 3.83</div>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2011 - 2012</div>
-                            <div class="cv-block">
-                                <h3>Pramandanijjanukroah School</h3>
-                                <div class="cv-meta">Kindergarten - Score 98%</div>
-                            </div>
-                        </div>
                     </section>
 
                     <section class="cv-section">
                         <div class="cv-section-title">Technical Skills</div>
                         <div class="skill-table">
                             <strong>Languages</strong>
-                            <span>Python, C/C++, Java, SQL, JavaScript</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Python</span>
+                                <span class="skill-pill">C/C++</span>
+                                <span class="skill-pill">Java</span>
+                                <span class="skill-pill">SQL</span>
+                                <span class="skill-pill">JavaScript</span>
+                            </div>
                             <strong>ML &amp; Data</strong>
-                            <span>Scikit-learn, XGBoost, LightGBM, Pandas, NumPy, SciPy, MNE-Python</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Scikit-learn</span>
+                                <span class="skill-pill">XGBoost</span>
+                                <span class="skill-pill">LightGBM</span>
+                                <span class="skill-pill">Pandas</span>
+                                <span class="skill-pill">NumPy</span>
+                                <span class="skill-pill">SciPy</span>
+                                <span class="skill-pill">MNE-Python</span>
+                            </div>
                             <strong>DL &amp; Vision</strong>
-                            <span>PyTorch, TensorFlow Lite (TFLite), FastAI, OpenCV, YOLO, EfficientNet, SAM</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">PyTorch</span>
+                                <span class="skill-pill">TensorFlow Lite (TFLite)</span>
+                                <span class="skill-pill">FastAI</span>
+                                <span class="skill-pill">OpenCV</span>
+                                <span class="skill-pill">YOLO</span>
+                                <span class="skill-pill">EfficientNet</span>
+                                <span class="skill-pill">SAM</span>
+                            </div>
                             <strong>NLP &amp; GenAI</strong>
-                            <span>Hugging Face Transformers, BERT, Qwen, Typhoon OCR, PyThaiNLP, Gemini API, Tavily</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Hugging Face Transformers</span>
+                                <span class="skill-pill">BERT</span>
+                                <span class="skill-pill">Qwen</span>
+                                <span class="skill-pill">Typhoon OCR</span>
+                                <span class="skill-pill">PyThaiNLP</span>
+                                <span class="skill-pill">Gemini API</span>
+                                <span class="skill-pill">Tavily</span>
+                            </div>
                             <strong>Web &amp; API</strong>
-                            <span>React, Vite, FastAPI, Express, Gradio, Streamlit</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">React</span>
+                                <span class="skill-pill">Vite</span>
+                                <span class="skill-pill">FastAPI</span>
+                                <span class="skill-pill">Express</span>
+                                <span class="skill-pill">Gradio</span>
+                                <span class="skill-pill">Streamlit</span>
+                            </div>
                             <strong>Embedded &amp; IoT</strong>
-                            <span>ESP32, Arduino, BLE, UART, I2C</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">ESP32</span>
+                                <span class="skill-pill">Arduino</span>
+                                <span class="skill-pill">BLE</span>
+                                <span class="skill-pill">UART</span>
+                                <span class="skill-pill">I2C</span>
+                            </div>
                             <strong>DevOps &amp; Tools</strong>
-                            <span>Docker, Git, GitHub Actions, Linux, Jupyter, Google Colab</span>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Docker</span>
+                                <span class="skill-pill">Git</span>
+                                <span class="skill-pill">GitHub Actions</span>
+                                <span class="skill-pill">Linux</span>
+                                <span class="skill-pill">Jupyter</span>
+                                <span class="skill-pill">Google Colab</span>
+                            </div>
                         </div>
                     </section>
-                    <div class="page-number">1 / 5</div>
-                </article>
-
-                <article class="page cv-page">
-                    <div class="cv-running-header">
-                        <span>Nontapat Auetrongjit</span>
-                        <span>Curriculum Vitae</span>
-                    </div>
                     <section class="cv-section">
-                        <div class="cv-section-title">Experience and Leadership</div>
+                        <div class="cv-section-title">Experience</div>
                         <div class="cv-grid">
                             <div class="cv-date">Jun 2026 - Aug 2026</div>
                             <div class="cv-block">
@@ -1457,25 +1528,6 @@
                             </div>
                         </div>
                         <div class="cv-grid">
-                            <div class="cv-date">2024</div>
-                            <div class="cv-block">
-                                <h3>Student Committee, Academic Division</h3>
-                                <div class="cv-meta">Kasetsart University Laboratory School</div>
-                                <p>
-                                    Grade 12 committee member in the Academic Division and liaison to the school's Information Technology Department, coordinating academic and technology-related matters.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2023 - 2024</div>
-                            <div class="cv-block">
-                                <h3>Member - KUS Computer Technology Club</h3>
-                                <p>
-                                    Joined workshops and team activities on computer science fundamentals, emerging technologies, and practical development.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
                             <div class="cv-date">27 - 31 Mar 2023</div>
                             <div class="cv-block">
                                 <h3>Programmer Intern - KnowAre</h3>
@@ -1485,7 +1537,88 @@
                             </div>
                         </div>
                     </section>
+                    <div class="page-number">1 / 4</div>
+                </article>
 
+                <article class="page cv-page">
+                    <div class="cv-running-header">
+                        <span>Nontapat Auetrongjit</span>
+                        <span>Curriculum Vitae</span>
+                    </div>
+                    <section class="cv-section">
+                        <div class="cv-section-title">Projects</div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>Thai Overt &amp; Mimed Speech EEG - Neural Speech Decoding Pipeline</h3>
+                                <div class="cv-meta">Brain Code Camp 2026</div>
+                                <p>End-to-end 32-channel, 512 Hz EEG decoding pipeline for spoken (overt) and silent (mimed) Thai speech across 80,000 trials (20 participants, 20 words).</p>
+                                <ul>
+                                    <li><strong>Pipeline &amp; Modeling:</strong> Implemented 5-step preprocessing (microvolt scaling, CAR, bandpass/FFT bandpower, 0.2–1.8 s windowing, normalization), trial auditing (121 flat trials), Picard ICA + ICLabel rejection, and 4-class within-subject EEGNet decoding (88.6–97.9%; ~87–90% post-ICA).</li>
+                                    <li><strong>LOSO Audit &amp; Calibration:</strong> Ran 10-fold LOSO across 180 word pairs (4–30 Hz Logistic Regression, 30–45 Hz shrinkage LDA), uncovering recording-group confounds (73.1% cross-half vs. 51.4% same-half; 74.4–82.9% control) and reaching 77.8% cross-mode accuracy with 20-shot calibration.</li>
+                                </ul>
+                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Thai-Overt-Mimed-Speech-EEG" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Thai-Overt-Mimed-Speech-EEG</a> &nbsp;&bull;&nbsp; <a href="https://medium.com/@nontaphatfirm/thai-overt-mimed-speech-eeg-3207c127b06e" target="_blank" rel="noopener noreferrer">medium.com/@nontaphatfirm/thai-overt-mimed-speech-eeg</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>AXONS Eyes Camera Health - Camera Tampering &amp; Drift Monitoring</h3>
+                                <div class="cv-meta">AXONS Corporate &times; Super AI Engineer Season 6</div>
+                                <p>Non-blocking asynchronous sidecar monitoring CCTV analytics pipelines to flag camera tampering (FOV shifts) and scene drift before degrading downstream models.</p>
+                                <ul>
+                                    <li><strong>Dual-Head Detection:</strong> Combined a geometric head (AKAZE features + RANSAC homography) for displacement verification with a structural head (multi-profile baselines + runtime object masking) to ignore human movement.</li>
+                                    <li><strong>Edge Deployment:</strong> Benchmarked light-normalized residual scoring and SSIM on 3,657 samples (0.35 s edge processing) and deployed for dining-table turnover monitoring.</li>
+                                </ul>
+                                <p class="project-link">Poster: <a href="https://media.licdn.com/dms/image/v2/D562DAQEgLaLY-9XiQg/profile-treasury-document-images_1920/B56aCAAT76JkAk-/1/1788853962815?e=1795651200&v=beta&t=tWEd6NTWGgwu1H7hbULRR9Pl-VtdAOJ4HVy6SY4Rxu0" target="_blank" rel="noopener noreferrer">Technical Poster Presentation</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>FormWings - On-Device Running-Form Analyzer</h3>
+                                <div class="cv-meta">WellSense AIoT Hackathon, Super AI Engineer Season 6</div>
+                                <p>Led software and ML design in a 10-person team building an IMU-based running-form analyzer running completely on-device.</p>
+                                <ul>
+                                    <li><strong>Edge Inference:</strong> Streamed 50 Hz filtered IMU data (Nano 33 BLE Sense, LSM9DS1) over UART to an Arduino UNO Q Linux pipeline running XGBoost (with SHAP-style contributions + FP16 TFLite Transformer fallback) for cadence, ground contact, lean, and impact metrics.</li>
+                                    <li><strong>IoT &amp; Dashboard:</strong> Added Modulino Thermo (I2C) heat-risk scoring, broadcast MsgPack over chunked BLE, and built a React + Vite dashboard; won Academic Popular Vote.</li>
+                                </ul>
+                                <p class="project-link">Link: <a href="https://thescamperss6.com/en/projects/formwings" target="_blank" rel="noopener noreferrer">thescamperss6.com/en/projects/formwings</a> &nbsp;&bull;&nbsp; <a href="https://github.com/thhanabun/FORMWiNGs_HW" target="_blank" rel="noopener noreferrer">github.com/thhanabun/FORMWiNGs_HW</a> &nbsp;&bull;&nbsp; <a href="https://www.youtube.com/watch?v=2-U8cmux9MM" target="_blank" rel="noopener noreferrer">Video Demo</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2026</div>
+                            <div class="cv-block">
+                                <h3>Dream Tour - AI Travel Recommendation App</h3>
+                                <div class="cv-meta">Mini Hackathon 4, Super AI Engineer Season 6 Level 2 Online</div>
+                                <p>Web app recommending up to five Thai destinations from a single mood photo via a three-agent AI pipeline.</p>
+                                <ul>
+                                    <li><strong>Agentic Workflow &amp; UI:</strong> Chained Gemini 2.0 Flash vision (vibe extraction), Tavily AI Search (local reviews), and Gemini reasoning (ranking + transport/food/Maps), served via a Gradio + Pillow UI filtering 77 provinces and 6 regions.</li>
+                                </ul>
+                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Dream-Tour" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Dream-Tour</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2024</div>
+                            <div class="cv-block">
+                                <h3>AI Classroom Behavior Detection</h3>
+                                <div class="cv-meta">AI Builders 2024</div>
+                                <p>Real-time student classroom behavior detection system developed as an independent AI Builders 2024 research project.</p>
+                                <ul>
+                                    <li><strong>Benchmark &amp; Deployment:</strong> Evaluated YOLOv8 (v8n, v8x), YOLOv9 (v9e), and YOLOv10 (v10x) on the SCB dataset via Ultralytics + OpenCV; deployed a Gradio image/video app on Hugging Face Spaces and won a Silver Medal at Chulalongkorn University.</li>
+                                </ul>
+                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Classroom-Behavior-Detector" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Classroom-Behavior-Detector</a> &nbsp;&bull;&nbsp; <a href="https://medium.com/@nontaphatfirm/student-behavior-detector-in-classroom-20f2fe5cc8a3" target="_blank" rel="noopener noreferrer">Medium</a> &nbsp;&bull;&nbsp; <a href="https://huggingface.co/spaces/nontaphat/Student-Behavior-Detector" target="_blank" rel="noopener noreferrer">Hugging Face Demo</a></p>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="page-number">2 / 4</div>
+                </article>
+
+                <article class="page cv-page">
+                    <div class="cv-running-header">
+                        <span>Nontapat Auetrongjit</span>
+                        <span>Curriculum Vitae</span>
+                    </div>
                     <section class="cv-section">
                         <div class="cv-section-title">AI, Informatics, and Academic Programs</div>
                         <div class="cv-grid">
@@ -1548,81 +1681,35 @@
                             </div>
                         </div>
                     </section>
-                    <div class="page-number">2 / 4</div>
-                </article>
 
-                <article class="page cv-page">
-                    <div class="cv-running-header">
-                        <span>Nontapat Auetrongjit</span>
-                        <span>Curriculum Vitae</span>
-                    </div>
                     <section class="cv-section">
-                        <div class="cv-section-title">Projects</div>
+                        <div class="cv-section-title">Leadership and Activities</div>
                         <div class="cv-grid">
-                            <div class="cv-date">2026</div>
+                            <div class="cv-date">2024</div>
                             <div class="cv-block">
-                                <h3>Thai Overt &amp; Mimed Speech EEG - Neural Speech Decoding Pipeline</h3>
-                                <div class="cv-meta">Brain Code Camp 2026</div>
+                                <h3>Student Committee, Academic Division</h3>
+                                <div class="cv-meta">Kasetsart University Laboratory School</div>
                                 <p>
-                                    Built an end-to-end 32-channel, 512 Hz EEG decoding pipeline for spoken (overt) and silent (mimed) Thai speech across 80,000 trials (20 participants, 20 words). Implemented 5-step preprocessing (microvolt scaling, CAR, bandpass/FFT bandpower, 0.2–1.8 s windowing, normalization), trial-quality auditing (121 flat trials), Picard ICA + ICLabel artifact rejection, and 4-class within-subject EEGNet decoding (88.6–97.9% across bands; ~87–90% post-ICA).
+                                    Grade 12 committee member in the Academic Division and liaison to the school's Information Technology Department, coordinating academic and technology-related matters.
                                 </p>
-                                <p>
-                                    Ran strict 10-fold Leave-One-Subject-Slot-Out (LOSO) evaluation across 180 word pairs (4–30 Hz Logistic Regression, 30–45 Hz shrinkage LDA) and uncovered dataset recording-group confounds: 73.1% cross-half vs. 51.4% same-half (near 50% chance), confirmed by a held-out recording-group control (74.4–82.9%). Benchmarked 20-shot calibration across 80 same-half pairs, reaching 77.8% cross-mode accuracy (77.4% target-only, 86.1% same-block).
-                                </p>
-                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Thai-Overt-Mimed-Speech-EEG" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Thai-Overt-Mimed-Speech-EEG</a> &nbsp;&bull;&nbsp; <a href="https://medium.com/@nontaphatfirm/thai-overt-mimed-speech-eeg-3207c127b06e" target="_blank" rel="noopener noreferrer">medium.com/@nontaphatfirm/thai-overt-mimed-speech-eeg</a></p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2026</div>
-                            <div class="cv-block">
-                                <h3>AXONS Eyes Camera Health - Camera Tampering &amp; Drift Monitoring</h3>
-                                <div class="cv-meta">AXONS Corporate &times; Super AI Engineer Season 6</div>
-                                <p>
-                                    Built a camera-health monitor that runs as an asynchronous sidecar next to AXONS's CCTV analytics pipelines. It flags camera tampering (field-of-view shifts) and scene drift early, before they degrade downstream computer-vision models, without blocking the main pipeline.
-                                </p>
-                                <p>
-                                    Designed a two-part detector: a geometric check (AKAZE features + RANSAC homography) confirms real camera movement, and a structural check uses multiple baseline profiles with runtime object masking to ignore people moving in the scene. Benchmarked light-normalized residual scoring and SSIM on 3,657 samples (0.35 s processing on edge) and deployed it on edge devices for dining-table turnover monitoring.
-                                </p>
-                                <p class="project-link">Poster: <a href="https://media.licdn.com/dms/image/v2/D562DAQEgLaLY-9XiQg/profile-treasury-document-images_1920/B56aCAAT76JkAk-/1/1788853962815?e=1795651200&v=beta&t=tWEd6NTWGgwu1H7hbULRR9Pl-VtdAOJ4HVy6SY4Rxu0" target="_blank" rel="noopener noreferrer">Technical Poster Presentation</a></p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2026</div>
-                            <div class="cv-block">
-                                <h3>FormWings - On-Device Running-Form Analyzer</h3>
-                                <div class="cv-meta">WellSense AIoT Hackathon, Super AI Engineer Season 6</div>
-                                <p>
-                                    Led software and ML design in a 10-person team building an IMU-based on-device running-form analyzer. An Arduino Nano 33 BLE Sense (LSM9DS1) streams 50 Hz filtered accelerometer and gyroscope data over UART to an Arduino UNO Q, where a Linux Python pipeline runs an XGBoost classifier (with SHAP-style feature contributions and an FP16 TFLite Transformer fallback) to estimate cadence, vertical oscillation, ground contact time, trunk forward lean, heel-strike likelihood, and impact loading rate.
-                                </p>
-                                <p>
-                                    Integrated a Modulino Thermo (I2C) for real-time temperature, humidity, heat-index, and heat-risk scoring, broadcast compact MsgPack payloads over chunked BLE, and built a React + Vite dashboard with live posture arc and metric strip. Won the Academic Popular Vote award at the WellSense AIoT Hackathon.
-                                </p>
-                                <p class="project-link">Link: <a href="https://thescamperss6.com/en/projects/formwings" target="_blank" rel="noopener noreferrer">thescamperss6.com/en/projects/formwings</a> &nbsp;&bull;&nbsp; <a href="https://github.com/thhanabun/FORMWiNGs_HW" target="_blank" rel="noopener noreferrer">github.com/thhanabun/FORMWiNGs_HW</a> &nbsp;&bull;&nbsp; <a href="https://www.youtube.com/watch?v=2-U8cmux9MM" target="_blank" rel="noopener noreferrer">Video Demo</a></p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2026</div>
-                            <div class="cv-block">
-                                <h3>Dream Tour - AI Travel Recommendation App</h3>
-                                <div class="cv-meta">Mini Hackathon 4, Super AI Engineer Season 6 Level 2 Online</div>
-                                <p>
-                                    Web app that recommends up to five Thai destinations from a single mood photo. A three-agent pipeline uses Gemini vision to extract travel "vibe" keywords, Tavily to search local reviews and blogs, and Gemini to rank destinations with descriptions, local tips, transport, food, photos, and Google Maps links.
-                                </p>
-                                <p>
-                                    Built the Python workflow and Gradio interface (Gemini 2.0 Flash, Tavily AI Search, Pillow), with optional filters for Thailand's 77 provinces and 6 regions.
-                                </p>
-                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Dream-Tour" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Dream-Tour</a></p>
                             </div>
                         </div>
                         <div class="cv-grid">
                             <div class="cv-date">2024</div>
                             <div class="cv-block">
-                                <h3>AI Classroom Behavior Detection</h3>
-                                <div class="cv-meta">AI Builders 2024</div>
+                                <h3>GEN WIT TV DEMO SS1</h3>
                                 <p>
-                                    Benchmarked object-detection models — YOLOv8 (v8n, v8x), YOLOv9 (v9e), and YOLOv10 (v10x) — on the SCB Student Classroom Behavior dataset (curated on Kaggle) using Ultralytics and OpenCV as my AI Builders 2024 project. Deployed an interactive Gradio image and video detector on Hugging Face Spaces; won a Silver Medal at the 9th Demonstration Academic Fair 2024, Chulalongkorn University Demonstration School.
+                                    Represented Kasetsart University Laboratory School in the demo episode of Workpoint Channel 23's "GEN WIT TV," a science, engineering, mathematics, and technology quiz show.
                                 </p>
-                                <p class="project-link">Link: <a href="https://github.com/nontaphatfirm/Classroom-Behavior-Detector" target="_blank" rel="noopener noreferrer">github.com/nontaphatfirm/Classroom-Behavior-Detector</a> &nbsp;&bull;&nbsp; <a href="https://medium.com/@nontaphatfirm/student-behavior-detector-in-classroom-20f2fe5cc8a3" target="_blank" rel="noopener noreferrer">Medium</a> &nbsp;&bull;&nbsp; <a href="https://huggingface.co/spaces/nontaphat/Student-Behavior-Detector" target="_blank" rel="noopener noreferrer">Hugging Face Demo</a></p>
+                            </div>
+                        </div>
+                        <div class="cv-grid">
+                            <div class="cv-date">2023 - 2024</div>
+                            <div class="cv-block">
+                                <h3>Member - KUS Computer Technology Club</h3>
+                                <p>
+                                    Joined workshops and team activities on computer science fundamentals, emerging technologies, and practical development.
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -1707,7 +1794,7 @@
                     </section>
 
                     <section class="cv-section">
-                        <div class="cv-section-title">Competitions and Activities</div>
+                        <div class="cv-section-title">Competitions</div>
                         <div class="cv-grid">
                             <div class="cv-date">2025</div>
                             <div class="cv-block">
@@ -1732,15 +1819,6 @@
                                 <h3>BangMod Hackathon</h3>
                                 <p>
                                     Competed in a national C programming contest in 2023 and 2024. In 2024, the team reached Round 2, ranking in the top 36 of 283 teams.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="cv-grid">
-                            <div class="cv-date">2024</div>
-                            <div class="cv-block">
-                                <h3>GEN WIT TV DEMO SS1</h3>
-                                <p>
-                                    Represented Kasetsart University Laboratory School in the demo episode of Workpoint Channel 23's "GEN WIT TV," a science, engineering, mathematics, and technology quiz show.
                                 </p>
                             </div>
                         </div>
