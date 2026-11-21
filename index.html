@@ -1796,7 +1796,7 @@
         const tabButtons = document.querySelectorAll(".tab-button");
         const views = document.querySelectorAll(".view");
 
-        function setActiveView(targetId) {
+        function setActiveView(targetId, syncUrl = false) {
             tabButtons.forEach((button) => {
                 button.classList.toggle("active", button.dataset.target === targetId);
             });
@@ -1806,18 +1806,44 @@
             document.title = targetId === "cv-view"
                 ? "Nontapat Auetrongjit - Curriculum Vitae"
                 : "Nontapat Auetrongjit - Resume";
+
+            if (syncUrl && window.history && typeof window.history.replaceState === "function") {
+                try {
+                    const url = new URL(window.location.href);
+                    if (targetId === "cv-view") {
+                        url.searchParams.set("view", "cv");
+                    } else {
+                        url.searchParams.delete("view");
+                        url.searchParams.delete("cv");
+                        if (url.hash.trim().toLowerCase() === "#cv") {
+                            url.hash = "";
+                        }
+                    }
+                    window.history.replaceState(null, "", url.toString());
+                } catch (_) {
+                    // Ignore history API restrictions in embedded or local file contexts
+                }
+            }
+        }
+
+        function resolveRequestedView() {
+            const params = new URLSearchParams(window.location.search);
+            const requestedView = (params.get("view") || "").trim().toLowerCase();
+            const hash = window.location.hash.trim().toLowerCase();
+            if (requestedView === "cv" || params.has("cv") || hash === "#cv") {
+                return "cv-view";
+            }
+            return "resume-view";
         }
 
         tabButtons.forEach((button) => {
-            button.addEventListener("click", () => setActiveView(button.dataset.target));
+            button.addEventListener("click", () => setActiveView(button.dataset.target, true));
         });
 
-        const requestedView = new URLSearchParams(window.location.search).get("view");
-        if (requestedView === "cv") {
-            setActiveView("cv-view");
-        } else {
-            setActiveView("resume-view");
-        }
+        setActiveView(resolveRequestedView(), false);
+        window.addEventListener("hashchange", () => {
+            setActiveView(resolveRequestedView(), false);
+        });
 
         const cvPages = document.querySelectorAll("#cv-document .cv-page");
         cvPages.forEach((page, index) => {
